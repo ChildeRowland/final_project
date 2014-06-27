@@ -1,0 +1,11 @@
+<p>These are the other users:</p>
+
+<ul>
+		<% @users.each do |user| %>
+	<li>
+		<a href="/">
+			<%= "#{user.fname} #{user.lname}" %>
+		</a>
+	</li>
+		<% end %>
+</ul>
