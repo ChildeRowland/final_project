@@ -78,6 +78,7 @@ post '/sign_in' do
 		redirect "/new_user"
 	elsif @user.password == params[:password]
 		session[:user_id] = @user.id
+		flash[:notice] = "You've logged in successfully."
 		redirect "/profile"
 	else 
 		flash[:notice] = "That password doesn't match this email.  Try again!"
@@ -91,6 +92,14 @@ post '/sign_up' do
 	flash[:notice] = "Cool. Let's make sure you can sign in."
 	redirect "/"
 end
+
+post '/blog_post/new' do
+	puts params[:post]
+	@post = Post.create(params[:post])
+	flash[:notice] = "Boom.  New blog post."
+	redirect "/profile"
+end
+
 
 
 

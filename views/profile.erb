@@ -1,8 +1,36 @@
-<p>You're logged in.</p>
+<%=flash[:notice] if flash[:notice]%>
 
-<p>Hey,</p><%= @user.fname %>
+<p>Hey, <%= @user.fname %></p>
 
 <p>This is your profile page.</p>
+
+<p>
+
+	<form method="POST" action="/blog_post/new">
+
+		<label for="user_id"></label>
+		<input type="hidden" name="[post]user_id" value="<%= @user.id %>">
+
+		<label for="created"></label>
+		<input type="hidden" name="[post]user_id" value="<%= Time.now %>">
+
+		<label for="blog_post">Enter text here to make a blog post:</label>
+		<input type="text" name="[post]blog_post">
+
+		<input type="submit">
+
+	</form>
+
+
+</p>
+
+	<p><%= @user.posts.last %></p>
+
+<ul>
+	<li>
+
+	</li>
+</ul>
 
 <p>
 	<a href="/all_users">Check out our other users!</a>
@@ -10,4 +38,6 @@
 
 <p>
  	<a href="/log_out">Log Out</a>
- </p>
+</p>
+
+ 
