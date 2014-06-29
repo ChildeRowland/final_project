@@ -43,6 +43,12 @@ get '/profile' do
 	erb :profile
 end
 
+get '/user/:id' do
+	
+	puts params[:id]
+
+	erb :profile_view
+end
 
 get '/login_failed' do
 	erb :login_failed
@@ -67,16 +73,22 @@ post '/sign_in' do
 		session[:user_id] = @user.id
 		redirect "/profile"
 	else 
-		redirect "/"
 		flash[:notice] = "That password doesn't match this email.  Try again!"
+		redirect "/"
 	end
 end
 
 post '/sign_up' do
 	puts params[:user]
 	@user = User.create(params[:user])
-	redirect "/"
 	flash[:notice] = "Cool. Let's make sure you can sign in."
+	redirect "/"
+end
+
+post '/log_out' do
+	session[:user_id] = nil
+	flash[:notice] = "You've been logged out."
+	redirect "/"
 end
 
 

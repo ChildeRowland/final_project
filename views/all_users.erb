@@ -3,7 +3,7 @@
 <ul>
 		<% @users.each do |user| %>
 	<li>
-		<a href="/">
+		<a href="/user/:id">
 			<%= "#{user.fname} #{user.lname}" %>
 		</a>
 	</li>
