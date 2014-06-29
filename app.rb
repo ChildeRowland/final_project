@@ -62,6 +62,13 @@ get '/all_users' do
 end
 
 
+get '/log_out' do
+	session[:user_id] = nil
+	flash[:notice] = "You've been logged out."
+	redirect "/"
+end
+
+
 #POST ROUTES
 
 
@@ -82,12 +89,6 @@ post '/sign_up' do
 	puts params[:user]
 	@user = User.create(params[:user])
 	flash[:notice] = "Cool. Let's make sure you can sign in."
-	redirect "/"
-end
-
-post '/log_out' do
-	session[:user_id] = nil
-	flash[:notice] = "You've been logged out."
 	redirect "/"
 end
 
