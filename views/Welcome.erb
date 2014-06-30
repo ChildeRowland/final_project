@@ -9,7 +9,26 @@
   	<label for="password">Password</label>  
   	<input type="password" name="password">  
   	<input type="submit">
-  	
   </form>
 
 <%=flash[:notice] if flash[:notice] %>
+
+<p>Here's what some of our users are talking about:</p>
+
+			<%= User.where(fname: "Bruce").lname %>
+
+<ul>
+			<% user_array = @post.map(&:user_id) %>
+			<% blog_array = @post.map(&:blog_post) %>
+			<% user_array.zip(blog_array).reverse.take(25).each do |u, b| %>
+
+	<li>
+		<%= "#{u} posted:" %>
+		<ul>
+			<li>
+			<%= "#{b}" %>
+			</li>
+		</ul>
+	</li>
+			<% end %>
+</ul>

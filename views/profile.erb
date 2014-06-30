@@ -11,8 +11,8 @@
 		<label for="created"></label>
 		<input type="hidden" name="[post]created" value="<%= Time.now %>">
 
-		<label for="blog_post">Enter text here to make a blog post:</label>
-		<input type="text" name="[post]blog_post">
+		<label for="blog_post"></label>
+		<textarea maxlength="150" name="[post]blog_post" placeholder="Got something to say?"></textarea><br>
 
 		<input type="submit">
 
@@ -24,7 +24,12 @@
 			<% created_blog_array = @user.posts.map(&:created) %>
 			<% post_blog_array.zip(created_blog_array).reverse.take(10).each do |b, c| %>
 	<li>
-			<%= "#{b} -posted at: #{c}" %>
+			<%= "#{b}" %>
+		<ul>
+			<li>
+			 <%= "-posted at: #{c}" %>
+			 </li>
+		</ul>
 	</li>
 			<% end %>
 </ul>
