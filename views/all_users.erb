@@ -1,11 +1,18 @@
 <p>These are the other users:</p>
 
+<%= @users.find(1).posts.last.blog_post %>
+
 <ul>
-		<% @users.each do |user| %>
+			<% @users.each do |user| %>
 	<li>
 		<a href="/user/:id">
 			<%= "#{user.fname} #{user.lname}" %>
 		</a>
+			<ul>
+				<li>
+					<%= "#{user.posts.last.blog_post}" %>
+				</li>
+			</ul>
 	</li>
 		<% end %>
 </ul>

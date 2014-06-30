@@ -28,7 +28,7 @@ helpers { alias_method :current_user, :current_user}
 
 
 get '/' do
-	@post = Post.all
+	@posts = Post.all
 
 	erb :Welcome
 end
