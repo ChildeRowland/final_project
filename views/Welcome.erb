@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 
+<div id="flash">
+      <%= flash[:notice] if flash[:notice] %>
+</div>
+
 <div class="sign_in">
   <p>Welcome, you can sign up <a href="/new_user">here</a></p>
   <p>Or sign in using your email address:</p>
@@ -13,10 +17,6 @@
     	<input type="submit">
     </form>
 
-  
-    <div id="flash">
-      <%= flash[:notice] if flash[:notice] %>
-    </div>
 </div>
 
 <div class="main_feed">

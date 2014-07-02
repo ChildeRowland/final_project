@@ -105,7 +105,10 @@ end
 post '/sign_up' do
 	puts params[:user]
 	@user = User.create(params[:user])
-	@profile = @user.profile.create(params[:profile])
+	@profile = Profile.new(params[:profile])
+	@profile.user_id = @user.id
+	@profile.picture = "http://www.publicdomainpictures.net/pictures/50000/nahled/smiley-silhouette.jpg"
+	@profile.save!
 	flash[:notice] = "Cool. Let's make sure you can sign in."
 	redirect "/"
 end

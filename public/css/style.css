@@ -27,7 +27,11 @@ p {
 }
 
 #flash {
+	position: fixed;
+	top: 0px;
+	right: 0px;
 	background-color: pink;
+	padding: 5px;
 }
 
 ul {
