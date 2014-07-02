@@ -77,11 +77,11 @@ get '/profile/edit' do
 end	
 
 
-# get '/delete/check' do
-# 	@user = current_user
+get '/delete/check' do
+	@user = current_user
 
-# 	erb :delete_check
-# end
+	erb :delete_check
+end
 
 
 #POST ROUTES
@@ -105,6 +105,7 @@ end
 post '/sign_up' do
 	puts params[:user]
 	@user = User.create(params[:user])
+	@profile = Profile.create(params[:profile])
 	flash[:notice] = "Cool. Let's make sure you can sign in."
 	redirect "/"
 end
@@ -117,11 +118,21 @@ post '/blog_post/new' do
 	redirect "/profile"
 end
 
+
 post '/update/profile' do
 	@user = current_user.update_attributes(params[:user])
 	current_user.profile.update_attributes(params[:profile])
 	flash[:notice] = "Updates successfull"
 	redirect "/profile"
+end
+
+
+post '/delete/profile' do
+	current_user.posts.destroy
+	current_user.profile.destroy
+	current_user.destroy
+	flash[:notice] = "Profile deleted.  Don't ever come back."
+	redirect "/"
 end
 
 

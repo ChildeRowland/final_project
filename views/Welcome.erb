@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <div class="sign_in">
-  <p>Welcome, please sign in using your email address:</p>
+  <p>Welcome, you can sign up <a href="/new_user">here</a></p>
+  <p>Or sign in using your email address:</p>
 
 
     <form method="POST" action="/sign_in">  
@@ -23,6 +24,7 @@
 
   <ul>
   			<% @posts.reverse.take(25).each do |post| %>
+
     	<li>
     			<%= "#{post.blog_post}" %>
     		<ul>
