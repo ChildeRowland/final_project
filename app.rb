@@ -70,6 +70,19 @@ get '/log_out' do
 	redirect "/"
 end
 
+get '/profile/edit' do
+	@user = current_user
+
+	erb :profile_edit
+end	
+
+
+# get '/delete/check' do
+# 	@user = current_user
+
+# 	erb :delete_check
+# end
+
 
 #POST ROUTES
 
@@ -88,6 +101,7 @@ post '/sign_in' do
 	end
 end
 
+
 post '/sign_up' do
 	puts params[:user]
 	@user = User.create(params[:user])
@@ -95,12 +109,26 @@ post '/sign_up' do
 	redirect "/"
 end
 
+
 post '/blog_post/new' do
 	puts params[:post]
 	@post = Post.create(params[:post])
 	flash[:notice] = "Boom.  New blog post."
 	redirect "/profile"
 end
+
+post '/update/profile' do
+	@user = current_user.update_attributes(params[:user])
+	current_user.profile.update_attributes(params[:profile])
+	flash[:notice] = "Updates successfull"
+	redirect "/profile"
+end
+
+
+post '/follow' do
+	
+end
+
 
 
 

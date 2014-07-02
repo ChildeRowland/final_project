@@ -1,0 +1,47 @@
+/** CSS **/
+
+body {
+	font-family: helvetica;
+}
+
+p {
+	color: grey;
+}
+
+.bio {
+	max-width: 50%;
+	background-color: lightgreen;
+}
+
+.bio img {
+	padding: 10px;
+	max-width: 300px;
+	max-height: 300px;
+}
+
+.bio p {
+	margin: 0px 0px 10px 10px;
+}
+
+.sign_in {
+}
+
+#flash {
+	background-color: pink;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	margin: 15px 5px 0px 5px;
+}
+
+ul ul li {
+	font-size: 14px;
+	color: grey;
+	display: inline-block;
+	margin: 0px 0px 0px -25px;
+}
+

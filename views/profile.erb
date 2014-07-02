@@ -1,6 +1,15 @@
-<%=flash[:notice] if flash[:notice]%>
+<div id="flash">
+	<%=flash[:notice] if flash[:notice]%>
+</div>
 
-<p>Hey, <%= @user.fname %>. This is your profile page.</p>
+<div class="bio">
+	<img src="<%=@user.profile.picture%>">
+	<p><%= "#{@user.fname} #{@user.lname}"%></p>
+	<p><%= "I'm a #{@user.profile.age} year old #{@user.profile.species} living in #{@user.profile.city}, #{@user.profile.state}" %></p>
+	<p>Here's a short bio:</p>
+	<p><%= @user.profile.bio %></p>
+
+</div>
 
 <p>
 	<form method="POST" action="/blog_post/new">
@@ -36,13 +45,10 @@
 
 	
 		
-
-<p>
 	<a href="/all_users">Check out our other users!</a>
-</p>
 
-<p>
+	<a href="/profile/edit">Edit Profile</a>
+
  	<a href="/log_out">Log Out</a>
-</p>
 
  

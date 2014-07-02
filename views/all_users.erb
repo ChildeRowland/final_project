@@ -1,9 +1,10 @@
 <p>These are the other users:</p>
 
-<%= @users.find(1).posts.last.blog_post %>
-
 <ul>
 			<% @users.each do |user| %>
+			<% if user.posts.last.blog_post.length < 1 then next %>
+			<% end %>
+
 	<li>
 		<a href="/user/:id">
 			<%= "#{user.fname} #{user.lname}" %>
@@ -11,8 +12,11 @@
 			<ul>
 				<li>
 					<%= "#{user.posts.last.blog_post}" %>
+					<a href="/follow">
+						<%= "Follow #{user.fname}." %>
+					</a>
 				</li>
 			</ul>
 	</li>
-		<% end %>
+			<% end %>
 </ul>

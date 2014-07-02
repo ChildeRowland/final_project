@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<p>From here you can update your profile:</p>
+
+<form method="POST" action="/update/profile"> 
+  	
+	<label for="age">Enter a new age:</label>
+	<input type="text" value="<%= @user.profile.age %>" name="[profile]age"><br
+
+	<label for="species">Enter a new species:</label>
+	<input type="text" value="<%= @user.profile.species %>" name="[profile]species"><br>
+
+	<label for="city">Enter a new city:</label>
+	<input type="text" value="<%= @user.profile.city %>" name="[profile]city"><br>
+
+	<label for="state">Enter a new state:</label>
+	<input type="text" value="<%= @user.profile.state %>" name="[profile]state"><br>
+
+	<label for="picture">Enter a new image url:</label>
+	<input type="text" value="<%= @user.profile.picture %>" name="[profile]picture"><br>
+
+	<label for="bio">Enter a new bio:</label>
+	<textarea value="<%= @user.profile.bio %>" name="[profile]bio"></textarea><br>
+
+  	<label for="email">Enter a new email:</label>  
+  	<input type="text" value="<%= @user.email %>" name="[user]email"><br>
+
+  	<label for="password">password</label>  
+  	<input type="password" value="<%= @user.password %>" name="[user]password"><br>
+
+  	<label for="user_id"></label>
+  	<input type="hidden" value="<%= @user.id %>" name="[profile]user_id">
+
+  	<input type="submit"> 
+  </form>
+
+  <a href="/profile">Cancel</a>
+
+  <a href="/check/delete">Delete Profile</a>
+
+   

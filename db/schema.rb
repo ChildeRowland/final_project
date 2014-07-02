@@ -11,12 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629215907) do
+ActiveRecord::Schema.define(version: 20140701221703) do
 
   create_table "posts", force: true do |t|
     t.integer  "user_id"
     t.datetime "created"
     t.string   "blog_post"
+  end
+
+  create_table "profiles", force: true do |t|
+    t.integer "user_id"
+    t.text    "bio"
+    t.integer "age"
+    t.string  "species"
+    t.string  "city"
+    t.string  "state"
+    t.string  "picture"
+    t.binary  "pic"
+  end
+
+  create_table "relationships", force: true do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+  end
+
+  create_table "user_followings", force: true do |t|
+    t.string  "fname"
+    t.string  "lname"
+    t.string  "email"
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|
