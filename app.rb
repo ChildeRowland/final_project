@@ -59,6 +59,7 @@ end
 
 get '/all_users' do
 	@users = User.all
+	@user = current_user
 
 	erb :all_users
 end
@@ -149,10 +150,11 @@ end
 
 
 post '/follow' do
-	
+	@following = Following.new(params[:following])
+	@following.user_id = @user.id
+	@following.f_id = 1
+	@following.save!
+	flash[:notice] = "Following new user"
+	redirect "/profile"
 end
-
-
-
-
 

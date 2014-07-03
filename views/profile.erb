@@ -46,13 +46,21 @@
 <div>
 	<p>These are the users you are Following:</p>
 
-	<% @user.followings.each do |following| %>
-	<%= following.f_id %>
-
+			<% @user.followings.each do |following| %>
+			<% User.where(id: following.f_id).first.posts.reverse.take(5).each do |post| %>
+	<ul>
+		<li>
+			<%= User.where(id: following.f_id).first.fname %>
+			<ul>
+				<li>
+			<%= post.blog_post %>
+				</li>
+			</ul>	
+			
+		</li>
+	</ul>
 	<% end %>
-
-
-
+	<% end %>
 </div>
 
 	
