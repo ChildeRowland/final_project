@@ -109,6 +109,15 @@ post '/sign_up' do
 	@profile.user_id = @user.id
 	@profile.picture = "http://www.publicdomainpictures.net/pictures/50000/nahled/smiley-silhouette.jpg"
 	@profile.save!
+
+	@post = Post.new(params[:profile])
+	@post.user_id = @user.id
+	@post.blog_post = "First Post, to make sure everything is working properly."
+	@post.created = Time.now
+	@post.save!
+	
+	# @profile = @user.profile.create(params[:profile])
+	# @post = @user.post.create(params[:post])	
 	flash[:notice] = "Cool. Let's make sure you can sign in."
 	redirect "/"
 end

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
 	has_one :profile
 	has_many :posts
+	has_many :followings
 	has_many :relationships
 	has_many :user_followings, through: :relationships
 
@@ -17,6 +18,13 @@ end
 
 class Profile < ActiveRecord::Base
 	belongs_to :user
+end
+
+
+class Following < ActiveRecord::Base
+
+	belongs_to :user
+
 end
 
 

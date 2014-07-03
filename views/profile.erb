@@ -43,6 +43,18 @@
 			<% end %>
 </ul>
 
+<div>
+	<p>These are the users you are Following:</p>
+
+	<% @user.followings.each do |following| %>
+	<%= following.f_id %>
+
+	<% end %>
+
+
+
+</div>
+
 	
 		
 	<a href="/all_users">Check out our other users!</a>
