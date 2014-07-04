@@ -85,6 +85,25 @@ get '/delete/check' do
 end
 
 
+get '/delete/profile' do
+	current_user.posts.each{|post| post.destroy}
+	current_user.profile.destroy
+	current_user.destroy
+	flash[:notice] = "Test"
+	redirect "/"
+end
+
+
+get '/follow' do
+	@following = Following.new(params[:following])
+	@following.user_id = @user.id
+	@following.f_id = 1
+	@following.save!
+	flash[:notice] = "Following new user"
+	redirect "/profile"
+end
+
+
 #POST ROUTES
 
 
@@ -139,22 +158,4 @@ post '/update/profile' do
 	redirect "/profile"
 end
 
-
-post '/delete/profile' do
-	current_user.posts.destroy
-	current_user.profile.destroy
-	current_user.destroy
-	flash[:notice] = "Profile deleted.  Don't ever come back."
-	redirect "/"
-end
-
-
-post '/follow' do
-	@following = Following.new(params[:following])
-	@following.user_id = @user.id
-	@following.f_id = 1
-	@following.save!
-	flash[:notice] = "Following new user"
-	redirect "/profile"
-end
 

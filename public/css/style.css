@@ -26,12 +26,17 @@ p {
 .sign_in {
 }
 
+/** FLASH ALERTS **/
+
 #flash {
 	position: fixed;
 	top: 0px;
 	right: 0px;
 	background-color: pink;
-	padding: 5px;
+}
+
+#flash p {
+	margin: 15px; 
 }
 
 ul {
