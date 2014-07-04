@@ -32,11 +32,11 @@ p {
 	position: fixed;
 	top: 0px;
 	right: 0px;
-	background-color: pink;
 }
 
 #flash p {
-	margin: 15px; 
+	background-color: pink;
+	margin: 15px;
 }
 
 ul {
@@ -45,6 +45,11 @@ ul {
 
 li {
 	margin: 15px 5px 0px 5px;
+}
+
+.follower-list-name {
+	list-style-type: none;
+	margin-left: 20px;
 }
 
 ul ul li {

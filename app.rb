@@ -89,16 +89,14 @@ get '/delete/profile' do
 	current_user.posts.each{|post| post.destroy}
 	current_user.profile.destroy
 	current_user.destroy
-	flash[:notice] = "Test"
+	flash[:notice] = "Fine! We didn't want to be your friend anyway."
 	redirect "/"
 end
 
 
 get '/follow' do
-	@following = Following.new(params[:following])
-	@following.user_id = @user.id
-	@following.f_id = 1
-	@following.save!
+	p params[:user]
+	@user.followed << users.find(16)
 	flash[:notice] = "Following new user"
 	redirect "/profile"
 end
