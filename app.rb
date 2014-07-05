@@ -95,9 +95,7 @@ end
 
 
 get '/follow' do
-	p params[:user]
-	@user.followed << users.find(16)
-	flash[:notice] = "Following new user"
+	flash[:notice] = "Feature not yet implemented."
 	redirect "/profile"
 end
 
